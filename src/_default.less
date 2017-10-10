@@ -85,3 +85,10 @@ item[data-type='note'] > run[tag] {
   font-size: @tag-font-size;
   text-decoration: none;
 }
+
+item[data-done] {
+  > run[content] {
+    text-strikethrough-color: @mute-color;
+    color: @mute-color;
+  }
+}
