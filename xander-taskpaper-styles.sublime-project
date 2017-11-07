@@ -4,5 +4,13 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"build_systems":
+	[
+		{
+			"name": "Build styles",
+			"cmd": ["./build.sh"],
+			"working_dir": "${project_path}"
+		}
+	],
 }
