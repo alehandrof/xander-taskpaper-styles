@@ -36,7 +36,7 @@ item[data-type=project] {
 
 item {
   paragraph-spacing-before: @padding;
-  paragraph-spacing-after:  @padding;
+  paragraph-spacing-after: @padding;
 }
 
 item[data-type=project] {
@@ -47,7 +47,7 @@ item[data-type=project] {
 item[data-type='note'] {
   // paragraph-spacing-after: @font-size;
   font-family: @font-family-note;
-  > run[content] {
+   > run[content] {
     background-color: @note-bg-color;
     color: @note-fg-color;
     font-size: @note-font-size;
@@ -81,8 +81,9 @@ item[data-type='note'] > run[tag] {
 }
 
 item[data-done] {
-  > run[content] {
-    text-strikethrough-color: @mute-color;
+   > run[content] {
     color: @mute-color;
+
+    text-strikethrough-color: @mute-color;
   }
 }
