@@ -1,0 +1,117 @@
+// Font settings (you can change these to your preference)
+// --------------------------------------------------------------------------
+@font-family: 'SF Text Light';
+@line-height-multiple: 1.3;
+// @font-family: 'SF Mono';
+// @line-height-multiple: 1.4;
+
+// ====================== Do not edit below this line =======================
+
+// Writer Light
+// Based on iA Writer
+// --------------------------------------------------------------------------
+@background-color: #f7f7f7;
+@tint-color: #29beea; // #ffcc00;
+@link-color: @tint-color;
+@heading-color: #1a1a1a;
+@tag-fg-color: #c7c4c2;
+@tag-bg-color: @background-color;
+@note-fg-color: @tag-fg-color;
+@note-bg-color: @background-color;
+@handle-color: mix(@mute-color, @background-color, 75%);
+@handle-secondary-color: @mute-color;
+
+@text-color: hsla(hue(@background-color), saturation(@background-color), 100 - lightness(@background-color), .92);
+@mute-color: hsla(hue(@text-color), saturation(@text-color), lightness(@text-color), .5); // mix(@text-color, @background-color, 50%);
+
+// Settings
+// --------------------------------------------------------------------------
+@font-family-header: @font-family;
+@font-family-note: @font-family;
+@font-size: @user-font-size;
+@font-size-header: @user-font-size * 20/18;
+@note-font-size: @user-font-size;
+@tag-font-size: @user-font-size * 16/18;
+@padding: @font-size * @line-height-multiple / 8;
+// @selection-color: mix(@tint-color, @background-color, 30%); // default
+// @invisibles-color: mix(@tint-color, @background-color, 70%); // default
+
+// Styles
+// --------------------------------------------------------------------------
+
+// Typewriter-mode
+editor {
+  typewriter-scroll-percent: 50%;
+  bottom-padding-percent: 50%;
+}
+
+editor {
+  // item-indent: @font-size;
+  line-height-multiple: @line-height-multiple;
+  guide-line-color: mix(@mute-color, @background-color, 10%);
+  editor-wrap-to-column: 105;
+  item-wrap-to-column: 90;
+}
+
+item[data-type=project] {
+  color: @heading-color;
+  font-family: @font-family-header;
+  font-size: @font-size-header;
+  font-weight: normal;
+}
+
+item {
+  paragraph-spacing-before: @padding;
+  paragraph-spacing-after: @padding;
+}
+
+item[data-type=project] {
+  paragraph-spacing-before: @padding * 2;
+  paragraph-spacing-after: @padding * 2;
+}
+
+item[data-type='note'] {
+  // paragraph-spacing-after: @font-size;
+  font-family: @font-family-note;
+   > run[content] {
+    background-color: @note-bg-color;
+    color: @note-fg-color;
+    font-size: @note-font-size;
+    font-style: normal;
+    // font-size: @user-font-size;
+  }
+}
+
+run[link] {
+  color: @link-color;
+  text-decoration: underline;
+}
+
+run[link^='button'] {
+  color: @mute-color;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+// run[link^="filter"] {
+//   color: @mute-color;
+//   text-decoration: none;
+// }
+
+run[tag],
+item[data-type='note'] > run[tag] {
+  background-color: @tag-bg-color;
+  color: @tag-fg-color;
+  font-size: @tag-font-size;
+  text-decoration: none;
+}
+
+item[data-done] {
+   > run[content] {
+    color: @mute-color;
+    font-style: italic;
+
+    text-strikethrough: none;
+    text-strikethrough-color: @mute-color;
+  }
+}
